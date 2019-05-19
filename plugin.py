@@ -819,9 +819,11 @@ def createIniImport():
     path=Parameters["Mode2"] + "/import/"
  
     try:
-        with open(path+"jsonSubIr", encoding='utf-8') as remote_name:    
+        with open(path+"jsonSubIr", encoding='utf-8') as remote_name:
+            Domoticz.Log(str(remote_name))
             data_remote = json.load(remote_name)
     except ValueError: # includes simplejson.decoder.JSONDecodeError
+        Domoticz.Log(str(ValueError))
         return False
  
     try:
