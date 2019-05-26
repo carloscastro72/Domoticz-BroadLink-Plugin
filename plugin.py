@@ -525,7 +525,7 @@ def DumpConfigToLog():
 
 # Update Device into DB
 def UpdateDevice(Unit, nValue, sValue):
-    # Make sure that the Domoticz device still exists (they can be deleted) before updating it 
+    # Make sure that the Domoticz device still exists (they can be deleted) before updating it
     if (Unit in Devices):
         if Unit == 1 or (Unit == 4 and Parameters["Mode3"] == 'SP3S') or (
                 (Unit == 2) and (Parameters["Mode3"] == 'SP1' or Parameters["Mode3"] == 'SP2')):
@@ -861,12 +861,9 @@ def createIniImport():
     path = Parameters["Mode2"] + "/import/"
 
     try:
-        Domoticz.Log(str(path))
         with open(path + "jsonSubIr", encoding='utf-8') as remote_name:
-            Domoticz.Log(str(remote_name))
             data_remote = json.load(remote_name)
     except ValueError:  # includes simplejson.decoder.JSONDecodeError
-        Domoticz.Log(str(ValueError))
         return False
 
     try:
