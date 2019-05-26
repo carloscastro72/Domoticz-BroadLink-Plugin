@@ -979,7 +979,8 @@ def remoteSend(Command):
 
     if Command in remoteKEY:
         k = remoteKEY.index(Command)
-        Domoticz.Log(str(remotetoSEND))
+        Domoticz.Log("remoteSend function, k=" + str(k))
+        Domoticz.Log("remoteSend function, remotetoSEND=" + str(remotetoSEND))
         try:
             genCommand(remotetoSEND[k])
         except IndexError:
