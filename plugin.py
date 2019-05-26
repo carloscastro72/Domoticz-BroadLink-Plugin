@@ -375,7 +375,7 @@ def onCommand(Unit, Command, Level, Hue):
             UpdateDevice(Unit, 1, 'undefined')
 
     else:
-        Domoticz.Error('Unknown command')
+        Domoticz    .Error('Unknown command')
 
     return True
 
@@ -546,6 +546,8 @@ def genCommand(Unit):
 
     path = str(Parameters["Mode2"]) + "/" + str(Parameters["Key"]) + "-" + str(Parameters["HardwareID"]) + "-" + str(
         Unit) + ".ini"
+
+    Domoticz.Log(path)
 
     if not os.path.exists(path):
         Domoticz.Error(' ini file not found: ' + str(path))
