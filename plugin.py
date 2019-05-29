@@ -375,7 +375,7 @@ def onCommand(Unit, Command, Level, Hue):
             UpdateDevice(Unit, 1, 'undefined')
 
     else:
-        Domoticz    .Error('Unknown command')
+        Domoticz.Error('Unknown command')
 
     return True
 
@@ -544,8 +544,7 @@ def genCommand(Unit):
 
     Domoticz.Log('Generate on Command for learned code stored on unit/ini :' + str(Unit))
 
-    path = str(Parameters["Mode2"]) + "/" + str(Parameters["Key"]) + "-" + str(Parameters["HardwareID"]) + "-" + str(
-        Unit) + ".ini"
+    path = str(Parameters["Mode2"]) + "/" + str(Parameters["Key"]) + "-" + str(Parameters["HardwareID"]) + "-" + str(Unit) + ".ini"
 
     Domoticz.Log(path)
 
@@ -980,7 +979,7 @@ def remoteSend(Command):
     if Command in remoteKEY:
         k = remoteKEY.index(Command)
         Domoticz.Log("remoteSend function, k=" + str(k))
-        Domoticz.Log("remoteSend function, remotetoSEND=" + str(remotetoSEND))
+        Domoticz.Log("remoteSend function, remotetoSEND=" + str(remotetoSEND[k]))
         try:
             genCommand(remotetoSEND[k])
         except IndexError:
